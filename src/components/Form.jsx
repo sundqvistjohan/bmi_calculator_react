@@ -8,6 +8,7 @@ const Form = props => {
         type="number"
         required
         placeholder="Weight (kg/lbs)"
+        value={props.weight}
         name="weight"
         id="weight"
         onChange={props.onChangeHandler}
@@ -17,6 +18,7 @@ const Form = props => {
         type="number"
         required
         placeholder="Height (cm/inch)"
+        value={props.height}
         name="height"
         id="height"
         onChange={props.onChangeHandler}
