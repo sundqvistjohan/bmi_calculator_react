@@ -1,13 +1,13 @@
 import React from "react";
 import { shallow } from "enzyme";
 
-import Form from "../components/Form";
+import BmiForm from "../components/BmiForm";
 
-describe("Form", () => {
+describe("BmiForm", () => {
   const handleChange = jest.fn();
   const handleSubmit = jest.fn();
   const describedComponent = shallow(
-    <Form
+    <BmiForm
       weight="90"
       height="190"
       calcMethod="metric"
@@ -21,14 +21,19 @@ describe("Form", () => {
   it("renders with height prop", () => {
     expect(describedComponent.find("#height").props().value).toEqual("190");
   });
+  it("renders with calcMethod prop", () => {
+    expect(describedComponent.find("#select-method").props().value).toEqual("metric");
+  });
   it("on change the onChangeHandler is called", () => {
     describedComponent.find("#weight").simulate("change");
     expect(handleChange).toHaveBeenCalled();
     describedComponent.find("#height").simulate("change");
     expect(handleChange).toHaveBeenCalled();
+    describedComponent.find("#select-method").simulate("change");
+    expect(handleChange).toHaveBeenCalled();
   });
   it("on submit the onSubmitHandler is called", () => {
-    describedComponent.find("form").simulate("submit");
+    describedComponent.simulate("submit");
     expect(handleSubmit).toHaveBeenCalled();
   });
 });

@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Form from "./components/Form";
+import BmiForm from "./components/BmiForm";
 import Message from "./components/Message";
 import { calculateBmi } from "./helpers/bmiHelper";
+import "./App.css"
 
 class App extends Component {
   state = {
@@ -12,7 +13,9 @@ class App extends Component {
     bmiMessage: ""
   };
 
-  onChangeHandler = e => this.setState({ [e.target.name]: e.target.value });
+  onChangeHandler = (e, { name, value }) => {
+    this.setState({ [name]: value });
+  };
 
   onSubmitHandler = e => {
     e.preventDefault();
@@ -26,8 +29,8 @@ class App extends Component {
 
   render() {
     return (
-      <div>
-        <Form
+      <div className="ui main container">
+        <BmiForm
           weight={this.state.weight}
           height={this.state.height}
           calcMethod={this.state.calcMethod}
