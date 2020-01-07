@@ -2,7 +2,7 @@ import React from "react";
 
 const Form = props => {
   return (
-    <form>
+    <form onSubmit={props.onSubmitHandler}>
       <label htmlFor="weight">Weight</label>
       <input
         type="number"
