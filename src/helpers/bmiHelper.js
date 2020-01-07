@@ -10,7 +10,7 @@ const setBMIMessage = finalBMI => {
   }
 
   if (finalBMI > 18.5 && finalBMI < 25) {
-    return "Normal";
+    return "Normal-weight";
   }
 
   if (finalBMI > 25 && finalBMI < 30) {
