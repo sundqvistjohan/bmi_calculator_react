@@ -7,6 +7,7 @@ class App extends Component {
   state = {
     weight: "",
     height: "",
+    calcMethod: "",
     bmiValue: "",
     bmiMessage: ""
   };
@@ -17,17 +18,20 @@ class App extends Component {
     e.preventDefault();
     const [bmiValue, bmiMessage] = calculateBmi(
       this.state.weight,
-      this.state.height
+      this.state.height,
+      this.state.calcMethod
     );
     this.setState({ bmiValue: bmiValue, bmiMessage: bmiMessage });
   };
 
   render() {
+    console.log(this.state)
     return (
       <div>
         <Form
           weight={this.state.weight}
           height={this.state.height}
+          calcMethod={this.state.calcMethod}
           onChangeHandler={this.onChangeHandler}
           onSubmitHandler={this.onSubmitHandler}
         />
